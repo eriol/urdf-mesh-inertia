@@ -6,11 +6,18 @@ from typing import Optional
 
 import typer
 from rich import print
+from typing_extensions import Annotated
 
 from .mesh import compute_inertial_parameters
 
 
-def main(mesh_path: Path, mass: float, precision: Optional[int] = None):
+def main(
+    mesh_path: Annotated[Path, typer.Option(help="Path of the mesh.")],
+    mass: Annotated[float, typer.Option(help="Mass of the mesh in kg.")],
+    precision: Annotated[
+        Optional[int], typer.Option(help="Rounding at specified decial digit.")
+    ] = None,
+):
     """Compute inertial parameters for a mesh.
 
     Calculation is made using pymeshlab and the URDF inertial tag for links is
