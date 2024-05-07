@@ -3,8 +3,8 @@
 Compute inertial parameters for a mesh using pymeshlab and return the URDF
 inertial tag for links.
 
-## Installation
 
+## Installation
 
 ### Using pipx
 
@@ -37,3 +37,41 @@ Then:
    ```console
    $ pipx install dist/urdf_mesh_inertia-0.1.0-py3-none-any.whl
    ```
+
+## Usage
+
+```console
+Usage: urdf-mesh-inertia [OPTIONS]
+
+ Compute inertial parameters for a mesh.
+ Calculation is made using pymeshlab and the URDF inertial tag for links is
+ returned.
+
+╭─ Options ────────────────────────────────────────────────────────────────────╮
+│ *  --mesh-path        PATH     Path of the mesh. [default: None] [required]  │
+│ *  --mass             FLOAT    Mass of the mesh in kg. [default: None]       │
+│                                [required]                                    │
+│    --precision        INTEGER  Rounding at specified decial digit.           │
+│                                [default: None]                               │
+│    --help                      Show this message and exit.                   │
+╰──────────────────────────────────────────────────────────────────────────────╯
+```
+
+For example:
+
+```console
+$ urdf-mesh-inertia --precision 8 ~/devel/ros/darwin_description/meshes/head_coll.stl 0.158
+```
+
+Will give us:
+
+```xml
+<inertial>
+  <origin xyz="0.0025258 -0.0244761 6.7e-07"/>
+  <mass value="0.158"/>
+  <inertia ixx="0.0001567" ixy="2.494e-05" ixz="-0.0" iyy="0.00016806" iyz="0.0" izz="0.00017144"/>
+</inertial>
+```
+
+`--precision` round at the specified decimal position. If you don't want
+rounding run the command without it.
