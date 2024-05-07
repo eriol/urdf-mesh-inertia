@@ -33,6 +33,12 @@ class InertialParameters:
 
 
 def compute_inertial_parameters(mesh: str, mass: float) -> InertialParameters:
+    """Compute inertial parameters for the specified mesh.
+
+    If the mesh is not 'watertight' and so MeshLab is not able to calculate
+    center of mass and the inertia tensor, we generate the convex hull and
+    perform again the calculation.
+    """
 
     mesh_set = pymeshlab.MeshSet()
     mesh_set.load_new_mesh(mesh)

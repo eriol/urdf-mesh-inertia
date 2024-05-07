@@ -11,7 +11,11 @@ from .mesh import compute_inertial_parameters
 
 
 def main(mesh_path: Path, mass: float, precision: Optional[int] = None):
+    """Compute inertial parameters for a mesh.
 
+    Calculation is made using pymeshlab and the URDF inertial tag for links is
+    returned.
+    """
     parameters = compute_inertial_parameters(str(mesh_path), mass)
 
     if precision is not None:
