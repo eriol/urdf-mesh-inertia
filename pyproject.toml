@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "urdf-mesh-inertia"
-version = "0.1.0"
+version = "0.2.0"
 description = "Compute inertial parameters for a mesh using pymeshlab and return the URDF inertial tag for links."
 authors = ["Daniele Tricoli <eriol@mornie.org>"]
 readme = "README.md"
