@@ -41,19 +41,21 @@ Then:
 ## Usage
 
 ```console
-Usage: urdf-mesh-inertia [OPTIONS]
+ Usage: urdf-mesh-inertia [OPTIONS] MESH_PATH MASS
 
  Compute inertial parameters for a mesh.
  Calculation is made using pymeshlab and the URDF inertial tag for links is
  returned.
 
+╭─ Arguments ──────────────────────────────────────────────────────────────────╮
+│ *    mesh_path      PATH   Path of the mesh. [default: None] [required]      │
+│ *    mass           FLOAT  Mass of the mesh in kg. [default: None]           │
+│                            [required]                                        │
+╰──────────────────────────────────────────────────────────────────────────────╯
 ╭─ Options ────────────────────────────────────────────────────────────────────╮
-│ *  --mesh-path        PATH     Path of the mesh. [default: None] [required]  │
-│ *  --mass             FLOAT    Mass of the mesh in kg. [default: None]       │
-│                                [required]                                    │
-│    --precision        INTEGER  Rounding at specified decial digit.           │
-│                                [default: None]                               │
-│    --help                      Show this message and exit.                   │
+│ --precision        INTEGER  Rounding at specified decimal digit.             │
+│                             [default: None]                                  │
+│ --help                      Show this message and exit.                      │
 ╰──────────────────────────────────────────────────────────────────────────────╯
 ```
 

@@ -12,10 +12,10 @@ from .mesh import compute_inertial_parameters
 
 
 def main(
-    mesh_path: Annotated[Path, typer.Option(help="Path of the mesh.")],
-    mass: Annotated[float, typer.Option(help="Mass of the mesh in kg.")],
+    mesh_path: Annotated[Path, typer.Argument(help="Path of the mesh.")],
+    mass: Annotated[float, typer.Argument(help="Mass of the mesh in kg.")],
     precision: Annotated[
-        Optional[int], typer.Option(help="Rounding at specified decial digit.")
+        Optional[int], typer.Option(help="Rounding at specified decimal digit.")
     ] = None,
 ):
     """Compute inertial parameters for a mesh.
