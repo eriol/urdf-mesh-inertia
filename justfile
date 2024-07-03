@@ -1,4 +1,4 @@
-# Build freakble.
+# Build urdf-mesh-inertia.
 build:
     @poetry build
 
@@ -12,6 +12,6 @@ clean:
 run +ARGS:
     @poetry run {{ARGS}}
 
-# Run freakble repl.
+# Run urdf-mesh-inertia tests.
 test:
     @poetry run pytest -vv
